@@ -14,7 +14,7 @@ class ViewBodyWidget extends StatelessWidget {
         children: [
           SizedBox(height: 50),
           AppBarWidget(),
-          SizedBox(height: 25),
+
           Expanded(child: ItmeListWidget()),
         ],
       ),
