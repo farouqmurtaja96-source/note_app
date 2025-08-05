@@ -9,7 +9,10 @@ class AppBarWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('Notes', style: TextStyle(fontSize: 20)),
+        Text(
+          'Notes',
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
         IconSearchWidget(),
       ],
     );

@@ -9,9 +9,10 @@ class IconSearchWidget extends StatelessWidget {
       height: 50,
       width: 50,
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: 0.1),
+        color: Colors.white.withValues(alpha: 0.17),
         borderRadius: BorderRadius.circular(16),
       ),
+      child: Icon(Icons.search, size: 26),
     );
   }
 }
