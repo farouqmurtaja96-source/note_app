@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
 
 class TextFiledWidget extends StatelessWidget {
-  const TextFiledWidget({super.key, required this.hint, this.maxline = 1});
+  const TextFiledWidget({
+    super.key,
+    required this.hint,
+    this.maxline = 1,
+    this.onSave,
+  });
   final String hint;
   final int maxline;
+  final void Function(String?)? onSave;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      onSaved: onSave,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'filed is required';
+        } else {
+          return null;
+        }
+      },
       cursorColor: Colors.lightBlue,
       maxLines: maxline,
       decoration: InputDecoration(
