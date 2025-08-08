@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:note_appv3/cubit/notes_cubit/notes_cubit.dart';
 import 'package:note_appv3/widget/app_bar_widget.dart';
 import 'package:note_appv3/widget/itme_list_widget.dart';
-import 'package:note_appv3/widget/itme_widget.dart';
 
 class ViewBodyWidget extends StatelessWidget {
   const ViewBodyWidget({super.key});

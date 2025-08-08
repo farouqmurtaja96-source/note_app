@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+
 import 'package:note_appv3/cubit/add_note_cubit/add_note_cubit_cubit.dart';
+import 'package:note_appv3/cubit/notes_cubit/notes_cubit.dart';
 import 'package:note_appv3/widget/form_text_widget.dart';
 
 class AddNoteWidget extends StatelessWidget {
@@ -14,6 +15,7 @@ class AddNoteWidget extends StatelessWidget {
       child: BlocConsumer<AddNoteCubitCubit, AddNoteCubitState>(
         listener: (context, state) {
           if (state is AddNoteCubitSucces) {
+            BlocProvider.of<NotesCubit>(context).featch();
             Navigator.pop(context);
           } else if (state is AddNoteCubitFaliuer) {
             print('faliuer ${state.errorState}');

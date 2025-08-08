@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:note_appv3/cubit/add_note_cubit/add_note_cubit_cubit.dart';
+import 'package:note_appv3/cubit/notes_cubit/notes_cubit.dart';
 import 'package:note_appv3/model/note_model.dart';
 import 'package:note_appv3/widget/button_widget.dart';
 import 'package:note_appv3/widget/text_filed_widget.dart';
@@ -13,11 +15,10 @@ class FormTextWidget extends StatefulWidget {
 }
 
 class _FormTextWidgetState extends State<FormTextWidget> {
-  @override
   GlobalKey<FormState> formkey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   String? title, content;
-
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: formkey,
@@ -45,15 +46,18 @@ class _FormTextWidgetState extends State<FormTextWidget> {
                 onTap: () {
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
+                    var curnet = DateTime.now();
+                    var format = DateFormat('dd-mm-yyyy').format(curnet);
                     NoteModel notemodel = NoteModel(
                       title: title!,
                       contet: content!,
-                      date: DateTime.now().toString(),
+                      date: format,
                       color: Colors.blue.toARGB32(),
                     );
                     BlocProvider.of<AddNoteCubitCubit>(
                       context,
                     ).addNote(notemodel);
+
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
                   }
