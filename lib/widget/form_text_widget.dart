@@ -5,6 +5,7 @@ import 'package:note_appv3/cubit/add_note_cubit/add_note_cubit_cubit.dart';
 import 'package:note_appv3/cubit/notes_cubit/notes_cubit.dart';
 import 'package:note_appv3/model/note_model.dart';
 import 'package:note_appv3/widget/button_widget.dart';
+import 'package:note_appv3/widget/color_list_widget.dart';
 import 'package:note_appv3/widget/text_filed_widget.dart';
 
 class FormTextWidget extends StatefulWidget {
@@ -38,6 +39,8 @@ class _FormTextWidgetState extends State<FormTextWidget> {
               content = value;
             },
           ),
+          SizedBox(height: 32),
+          ColorListWidget(),
           SizedBox(height: 32),
           BlocBuilder<AddNoteCubitCubit, AddNoteCubitState>(
             builder: (context, state) {

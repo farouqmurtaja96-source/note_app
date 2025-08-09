@@ -16,7 +16,7 @@ class ItmeWidget extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return EditView();
+              return EditView(noteModel: noteModel);
             },
           ),
         );

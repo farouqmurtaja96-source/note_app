@@ -17,9 +17,7 @@ class AddNoteWidget extends StatelessWidget {
           if (state is AddNoteCubitSucces) {
             BlocProvider.of<NotesCubit>(context).featch();
             Navigator.pop(context);
-          } else if (state is AddNoteCubitFaliuer) {
-            print('faliuer ${state.errorState}');
-          }
+          } else if (state is AddNoteCubitFaliuer) {}
         },
         builder: (context, state) {
           return AbsorbPointer(
